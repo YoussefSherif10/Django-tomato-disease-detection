@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Smart Vegetation System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/191ce6a796.js" crossorigin="anonymous"></script>
+    <style>
+        .html {
+            min-height: 100%;
+            min-width: 100%;
+        }
+
+        .body {
+            min-width: 100%;
+            min-height: 100%;
+            background-image: linear-gradient(to right bottom, #1f262d, #2a323b, #353e49, #404b58, #4c5867);
+            font-family: 'Otomanopee One', sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            min-width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 5%;
+        }
+
+        .recs {
+            height: 100%;
+            padding: 2%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: left;
+            max-width: 50%;
+        }
+
+        #pimage {
+            max-width: 40%;
+            max-height: 50%;
+            border-radius: 20px;
+            border: 3px solid #5b71a4;
+        }
+
+        span {
+            color: #e60000;
+        }
+
+        .footer {
+            padding: 3%;
+            border-top: 4px solid #5b71a4;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            color: silver;
+        }
+
+        .contact-details {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 2rem;
+            text-shadow: 2px 2px 1px #1f1f1f;
+            transition: transform 0.3s ease-out;
+            text-decoration: none;
+            color: silver;
+        }
+
+        .contact-details:hover {
+            transform: translateY(8px);
+            text-decoration: none;
+            color: #5b71a4;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+        <div class="navbar-brand">
+            <img src="/media/images/plant.jpeg" alt="" width="30" height="24" class="d-inline-block align-text-top"> Smart Vegetation System
+        </div>
+
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <button class="btn btn-secondary btn-lg my-2 my-sm-0" onclick="window.location.href='{% url 'project:firstpage'%}';">
+                        <i class="fas fa-upload"></i> Other Image
+                        </button>
+</div>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="recs">
+            <h1>State of the plant</h1>
+            <p>Sorry to tell you but your plant is not okay <br> This disease is called : <span>{{recomend.disease}}</span></p>
+            <h1>To Avoid</h1>
+            <ul>
+                {{recomend.avoid|safe}}
+            </ul>
+            <h1>Best Practice</h1>
+            <ul>
+                {{recomend.bp|safe}}
+            </ul>
+        </section>
+        {% load static %}
+        <img src="{{ MEDIA_URL }}{{ myimage.imagefile }}" alt="Plant's image should view here" id="pimage">
+    </main>
+
+    <footer class="footer">
+        <h2>Configure your plant system through our website</h2>
+        <a class='contact-details' target='_blank' href='#'>
+            <i class="fas fa-desktop"></i> Website
+        </a>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Smart Vegetation System</title>
+    <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" />
+    <link rel="ICON" href="favicon.ico" type="image/ico" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/191ce6a796.js" crossorigin="anonymous"></script>
+    <style>
+        .html {
+            min-height: 100%;
+            min-width: 100%;
+        }
+
+        .body {
+            min-width: 100%;
+            min-height: 100%;
+            background-image: linear-gradient(to right bottom, #1f262d, #2a323b, #353e49, #404b58, #4c5867);
+            font-family: 'Otomanopee One', sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 60%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 5%;
+        }
+    </style>
+</head>
+<body class="body">
+    <div class = "container">
+        <h1>Welcome to the Smart Vegetation System detection model</h1><br><br>
+        <h3>Taking care of your plants is easier than ever</h3><br><br>
+        <p>Disease fungi take their energy from the plants on which they live. They are responsible for a great deal of damage and are characterized by wilting,
+        scabs, moldy coatings, rusts, blotches, and rotted tissue. </p>
+        <p>This web application is designed to help identify some of the more common plant diseases and provides
+        friendly solutions. This web app is not just about detecting disease it also gives directions about how
+        to avoid it and the best practice guide. With our deep learning technology, you will be able to detect grow your own healthy plant.</p><br><br>
+        {% load crispy_forms_tags %}
+        <h1>Upload your plant's photo: </h1>
+
+        <div class="form-group">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %} {{form.media}} {{form|crispy}}
+                <input type="submit" value="Upload">
+    </form>
+</div>
+
+    </div>
+
+</body>
+
+</html>
